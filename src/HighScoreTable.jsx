@@ -1,10 +1,15 @@
 import React from "react";
 import PlayerScore from "./PlayerScore";
+import "./HighScoreTable.css";
 
 const HighScoreTable = ({ countryData }) => {
+  // Level 3
+  // sort the scores in descending order
+  const sortedScores = [...countryData.scores].sort((a, b) => b.s - a.s);
+
   return (
-    <div>
-      <h1>{countryData.name}</h1>
+    <div className="high-score-table">
+      <h2>{countryData.name}</h2>
       <table>
         <thead>
           <tr>
@@ -13,7 +18,7 @@ const HighScoreTable = ({ countryData }) => {
           </tr>
         </thead>
         <tbody>
-          {countryData.scores.map((player, index) => (
+          {sortedScores.map((player, index) => (
             <PlayerScore key={index} name={player.n} score={player.s} />
           ))}
         </tbody>

@@ -1,8 +1,9 @@
 import React from "react";
+import "./PlayerScore.css";
 
 const PlayerScore = ({ name, score }) => {
   return (
-    <tr>
+    <tr className="player-score">
       <td>{name}</td>
       <td>{score}</td>
     </tr>
