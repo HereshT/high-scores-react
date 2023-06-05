@@ -2,10 +2,11 @@ import React from "react";
 import PlayerScore from "./PlayerScore";
 import "./HighScoreTable.css";
 
-const HighScoreTable = ({ countryData }) => {
-  // Level 3
-  // sort the scores in descending order
-  const sortedScores = [...countryData.scores].sort((a, b) => b.s - a.s);
+const HighScoreTable = ({ countryData, isAscending }) => {
+  // sort the scores based on isAscending
+  const sortedScores = [...countryData.scores].sort((a, b) =>
+    isAscending ? a.s - b.s : b.s - a.s
+  );
 
   return (
     <div className="high-score-table">
